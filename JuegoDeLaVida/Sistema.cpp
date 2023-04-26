@@ -1,5 +1,10 @@
 #include "Sistema.h"
 
+Sistema::Sistema()
+{
+	this->matriz = nullptr;
+}
+
 void Sistema::Menu()
 {
 	int opcion = 0;
@@ -19,6 +24,16 @@ void Sistema::Menu()
 	switch (opcion)
 	{
 		case 1:
+			//rand() entrega un valor aleatorio, en este caso entre 4 y 10
+			int fila_1 = 4 + rand() % 11;
+			int columna_1 = 4 + rand() % 11;
+			for (int i = 1; i <= fila_1; i++)
+			{
+				for (int j = 1; j <= columna_1; j++) 
+				{
+					matriz->insertNode(0,i,j);
+				}
+			}
 			break;
 		case 2:
 			break;

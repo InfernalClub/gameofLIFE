@@ -1,16 +1,12 @@
 #include "Nodo.h"
 
-Nodo::Nodo()
-{
-}
-
 Nodo::Nodo(int valor, int fila, int columna)
 {
 	this->valor = valor;
 	this->fila = fila;
 	this->columna = columna;
-	this->up = nullptr;
-	this->left = nullptr;
+	this->down = nullptr;
+	this->right = nullptr;
 }
 
 Nodo::~Nodo()
@@ -18,8 +14,8 @@ Nodo::~Nodo()
 	this->valor = NULL;
 	this->fila = -1;
 	this->columna = -1;
-	this->up = nullptr;
-	this->left = nullptr;
+	this->down = nullptr;
+	this->right = nullptr;
 }
 
 int Nodo::getValor()
@@ -37,18 +33,15 @@ int Nodo::getColumna()
 	return this->columna;
 }
 
-Nodo* Nodo::getUp()
+Nodo* Nodo::getDown()
 {
-	return this->up;
+	return this->down;
 }
 
-Nodo* Nodo::getLeft()
+Nodo* Nodo::getRight()
 {
-	return this->left;
+	return this->right;
 }
-
-
-
 
 void Nodo::setValor(int valor)
 {
@@ -65,12 +58,12 @@ void Nodo::setColumna(int columna)
 	this->columna = columna;
 }
 
-void Nodo::setUp(Nodo* up)
+void Nodo::setDown(Nodo* down)
 {
-	this->up = up;
+	this->down = down;
 }
 
-void Nodo::setLeft(Nodo* left)
+void Nodo::setRight(Nodo* right)
 {
-	this->left = left;
+	this->right = right;
 }

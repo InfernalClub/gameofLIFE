@@ -1,46 +1,61 @@
 #include "MPP.h"
 
-MPP::MPP(int fila, int columna)
+MPP::MPP(int row, int column)
 {
-	this->a_row = new Nodo(fila);
-	this->a_column = new Nodo(columna);
-	for (int i = 0; i < fila; i++)
-	{
-		(this->a_row + i)->setLeft(this->a_row + i);
-		(this->a_row + i)->setColumna(0);
-
-		if (i < columna)
-		{
-			(this->a_column + i)->setUp(this->a_column + i);
-			(this->a_column + i)->setFila(0);
-		}
-	}
+    num_f = row;
+    num_c = column;
+    raiz = new Nodo(0, 0, 0);
+    Nodo* current = raiz;
+    for (int i = 0; i <= num_f; i++) {
+        Nodo* new_node = new Nodo(i, 0, 0);
+        current->setDown(new_node);
+        current = new_node;
+    }
+    current->setDown(raiz);
+    current = raiz;
+    for (int j = 0; j <= num_c; j++) {
+        Nodo* new_node = new Nodo(0, j, 0);
+        current->setRight(new_node);
+        current = new_node;
+    }
+    current->setRight(raiz);
 }
 
-void MPP::addNode(int dato,int fila, int columna)
+bool MPP::insertNode(int dato, int fila, int columna)
 {
-	Nodo* nuevoNodo = new Nodo(dato, fila, columna);
-	Nodo* aux = &a_row;
+    Nodo* current_row = raiz;
+    Nodo* prev_row = NULL;
+    while (current_row->getFila() < fila) {
+        prev_row = current_row;
+        current_row = current_row->getDown();
+    }
+    Nodo* current_col = current_row;
+    Nodo* prev_col = NULL;
+    while (current_col->getColumna() < columna) {
+        prev_col = current_col;
+        current_col = current_col->getRight();
+    }
+    if (current_col->getColumna() == columna && current_col->getFila() == fila) {
+        current_col->setValor(dato);
+        return true;
+    }
+    return false;
 }
 
-Nodo* MPP::searchNode(int fila, int columna)
+Nodo* MPP::getNode(int fila, int columna)
 {
-	if (fila < 1 || columna < 1) {
-		return nullptr;
-	}
-
-	Nodo* aux = this->a_row + fila - 1;
-
-	while (aux->getLeft()->getColumna() >= columna)
-	{
-		aux = aux->getLeft();
-	}
-	if (aux != this->a_row + fila - 1)
-	{
-		if (aux->getColumna() == columna)
-		{
-			return aux;
-		}
-	}
-	return nullptr;
+    Nodo* current_row = raiz;
+    while (current_row->getFila() < fila) {
+        current_row = current_row->getDown();
+    }
+    Nodo* current_col = current_row;
+    while (current_col->getColumna() < columna) {
+        current_col = current_col->getRight();
+    }
+    if (current_col->getColumna() == columna && current_col->getFila() == fila) {
+        return current_col;
+    }
+    else {
+        return nullptr;
+    }
 }

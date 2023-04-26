@@ -6,8 +6,9 @@ using namespace std;
 class MPP
 {
 private:
-	Nodo* a_row;
-	Nodo* a_column;
+	Nodo* raiz;
+	int num_f;
+	int num_c;
 public:
 	// Constructor
 	// <param name="row">Numero de filas</param>
@@ -17,11 +18,11 @@ public:
 	~MPP() = default;
 	// Agrega un dato a la matriz
 	// <param name="student">Instancia de Student</param>
-	void addNode(int dato, int fila, int columna);
+	bool insertNode(int dato, int fila, int columna);
 	// Busca un dato
 	// <param name="row">Fila del dato (Paralelo)</param>
 	// <param name="column">Columna del dato (Numero lista)</param>
 	// <returns>Puntero Node con que contiene un dato</returns>
-	Nodo* searchNode(int fila, int columna);
+	Nodo* getNode(int fila, int columna);
 };
 

@@ -7,13 +7,9 @@ private:
 	int valor;
 	int fila;
 	int columna;
-	Nodo* up;
-	Nodo* left;
+	Nodo* down;
+	Nodo* right;
 public:
-	/// <summary>
-	/// Constructor
-	/// </summary>
-	Nodo();
 	/// <summary>
 	/// Constructor
 	/// </summary>
@@ -25,6 +21,10 @@ public:
 	/// Destructor basico
 	/// </summary>
 	~Nodo();
+	/// <summary>
+	/// Obtiene el valor almacenado
+	/// </summary>
+	/// <returns>int</returns>
 	int getValor();
 	/// <summary>
 	/// Obtiene la fila de ubicacion
@@ -37,15 +37,15 @@ public:
 	/// <returns>int</returns>
 	int getColumna();
 	/// <summary>
-	/// Obtiene el siguiente hacia arriba
+	/// Obtiene el siguiente hacia abajo
 	/// </summary>
 	/// <returns>Puntero Node*</returns>
-	Nodo* getUp();
+	Nodo* getDown();
 	/// <summary>
-	/// Obtiene el siguiente Nodo a la izquierda
+	/// Obtiene el siguiente Nodo a la derecha
 	/// </summary>
 	/// <returns>Puntero Node*</returns>
-	Nodo* getLeft();
+	Nodo* getRight();
 	/// <summary>
 	/// Establece un nuevo dato en el nodo
 	/// </summary>
@@ -62,13 +62,13 @@ public:
 	/// <param name="column">Numero de columna</param>
 	void setColumna(int columna);
 	/// <summary>
-	/// Establece un nuevo nodo hacia arriba
+	/// Establece un nuevo nodo hacia abajo
 	/// </summary>
-	/// <param name="up">Puntero de Instancia de Nodo</param>
-	void setUp(Nodo* up);
+	/// <param name="down">Puntero de Instancia de Nodo</param>
+	void setDown(Nodo* down);
 	/// <summary>
-	/// Establece un nuevo nodo izquierdo
+	/// Establece un nuevo nodo derecho
 	/// </summary>
-	/// <param name="left">Puntero de Instancia de Nod</param>
-	void setLeft(Nodo* left);
+	/// <param name="right">Puntero de Instancia de Nod</param>
+	void setRight(Nodo* right);
 };
