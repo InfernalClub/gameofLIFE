@@ -10,5 +10,7 @@ private:
 public:
 	Sistema();
 	void Menu();
+	void MenuPartidaPerso();
+	void MenuPartidaPrefab();
 };
 

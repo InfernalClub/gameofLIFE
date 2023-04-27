@@ -19,25 +19,17 @@ void Sistema::Menu()
 	cout << "\n";
 	cout << "Opcion: ";
 	cin >> opcion;
-	cout << "\n";
 
 	switch (opcion)
 	{
 		case 1:
 			//rand() entrega un valor aleatorio, en este caso entre 4 y 10
-			int fila_1 = 4 + rand() % 11;
-			int columna_1 = 4 + rand() % 11;
-			for (int i = 1; i <= fila_1; i++)
-			{
-				for (int j = 1; j <= columna_1; j++) 
-				{
-					matriz->insertNode(0,i,j);
-				}
-			}
 			break;
 		case 2:
+			MenuPartidaPerso();
 			break;
 		case 3:
+			MenuPartidaPrefab();
 			break;
 		case 4:
 			break;
@@ -49,4 +41,79 @@ void Sistema::Menu()
 			cout << "\n";
 			Menu();
 	}
+
+}
+
+void Sistema::MenuPartidaPerso()
+{
+	int fila = 0;
+	int columna = 0;
+	cout << "\nPor favor, ingresar los valores para generar el tablero de juego (maximo 13 casillas)\n";
+	cout <<"\nIngrese el valor correspondiente al largo del tablero ";
+	cin >> fila;
+	if (fila < 13) 
+	{
+		cout << "\nEl largo del tablero es de " << fila << "\n";
+		cout << "\nIngrese el valor correspondiente al ancho del tablero ";
+		cin >> columna;
+		if (columna < 13)
+		{
+			cout << "\nEl ancho del tablero es de " << columna << "\n";
+			this->matriz->insertNode(0, fila, columna);
+		}
+		else
+		{
+			cout << "\nEl sistema no puede procesar más de 13 casillas\n";
+			MenuPartidaPerso();
+		}
+	}
+	else {
+		cout << "\nEl sistema no puede procesar más de 13 casillas\n";
+		MenuPartidaPerso();
+	}
+}
+
+void Sistema::MenuPartidaPrefab()
+{
+	char opcion;
+	int fila = 0;
+	int columna = 0;
+	cout << "\nPor favor, seleccionar el tipo de tablero\n";
+	cout << "A) 4x4\n";
+	cout << "B) 5x5\n";
+	cout << "C) 6x6\n";
+	cout << "D) 10x10\n";
+	cin >> opcion;
+	switch (opcion)
+	{
+		case 'a':
+			fila = 4;
+			columna = 4;
+			this->matriz->insertNode(0, 4, 4);
+			break;
+
+		case 'b':
+			fila = 5;
+			columna = 5;
+			this->matriz->insertNode(0, 5, 5);
+			break;
+
+		case 'c':
+			fila = 6;
+			columna = 6;
+			this->matriz->insertNode(0, 6, 6);
+			break;
+
+		case 'd':
+			fila = 10;
+			columna = 10;
+			this->matriz->insertNode(0, 10, 10);
+			break;
+
+		default:
+			cout << "\nOpcion no valida.\n";
+			MenuPartidaPrefab();
+			break;
+	}
+
 }
