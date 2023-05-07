@@ -9,6 +9,9 @@ private:
 	int columna;
 	Nodo* down;
 	Nodo* right;
+	Nodo* left;
+	Nodo* up;
+
 public:
 	/// <summary>
 	/// Constructor
@@ -27,48 +30,58 @@ public:
 	/// <returns>int</returns>
 	int getValor();
 	/// <summary>
-	/// Obtiene la fila de ubicacion
+	/// Obtiene el valor del nodo
 	/// </summary>
-	/// <returns>int</returns>
 	int getFila();
 	/// <summary>
 	/// Obtiene la columna de ubicacion
 	/// </summary>
-	/// <returns>int</returns>
 	int getColumna();
 	/// <summary>
 	/// Obtiene el siguiente hacia abajo
 	/// </summary>
-	/// <returns>Puntero Node*</returns>
 	Nodo* getDown();
+	/// <summary>
+	/// Obtiene el siguiente Nodo hacia abajo
+	/// </summary>
+	Nodo* getRight();
 	/// <summary>
 	/// Obtiene el siguiente Nodo a la derecha
 	/// </summary>
-	/// <returns>Puntero Node*</returns>
-	Nodo* getRight();
+	Nodo* getUp();
 	/// <summary>
-	/// Establece un nuevo dato en el nodo
+	/// Obtiene el siguiente Nodo hacia arriba
 	/// </summary>
-	/// <param name="student">Puntero de Instancia de studiante</param>
+	Nodo* getLeft();
+	/// <summary>
+	/// Obtiene el siguiente Nodo hacia la izquierda
+	/// </summary>
 	void setValor(int valor);
 	/// <summary>
-	/// Establece nueva ubicacion fila
+	/// Cambia el estado actual del Nodo
 	/// </summary>
-	/// <param name="row">Numero de fila</param>
 	void setFila(int fila);
 	/// <summary>
-	/// Establece nueva ubicacion columna
+	/// Establece nueva ubicacion en fila
 	/// </summary>
-	/// <param name="column">Numero de columna</param>
 	void setColumna(int columna);
 	/// <summary>
-	/// Establece un nuevo nodo hacia abajo
+	/// Establece una nueva ubicacion en columna
 	/// </summary>
-	/// <param name="down">Puntero de Instancia de Nodo</param>
 	void setDown(Nodo* down);
+	/// <summary>
+	/// Establece un nuevo nodo por debajo
+	/// </summary>
+	void setRight(Nodo* right);
 	/// <summary>
 	/// Establece un nuevo nodo derecho
 	/// </summary>
-	/// <param name="right">Puntero de Instancia de Nod</param>
-	void setRight(Nodo* right);
+	void setUp(Nodo* up);
+	/// <summary>
+	/// Establece un nuevo nodo por arriba
+	/// </summary>
+	void setLeft(Nodo* left);
+	/// <summary>
+	/// Establece un nuevo nodo hacia la izquierda
+	/// </summary>
 };

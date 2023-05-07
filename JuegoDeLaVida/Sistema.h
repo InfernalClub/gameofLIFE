@@ -12,5 +12,6 @@ public:
 	void Menu();
 	void MenuPartidaPerso();
 	void MenuPartidaPrefab();
+	void crearMatriz(int fila, int columna);
 };
 

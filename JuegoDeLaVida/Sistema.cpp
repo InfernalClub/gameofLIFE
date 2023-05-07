@@ -1,4 +1,5 @@
 #include "Sistema.h"
+#include <random>
 
 Sistema::Sistema()
 {
@@ -22,9 +23,19 @@ void Sistema::Menu()
 
 	switch (opcion)
 	{
-		case 1:
-			//rand() entrega un valor aleatorio, en este caso entre 4 y 10
-			break;
+	case 1: 
+		{
+		//rand() entrega un valor aleatorio, en este caso entre 4 y 10
+		std::random_device rd;
+		std::uniform_int_distribution<int> dist(4, 10);
+		int fila = dist(rd);
+		int columna = dist(rd);
+		std::cout << dist(rd) << "\n";
+		std::cout << "La cantidad de filas es de " << fila << "\n";
+		std::cout << "La cantidad de columnas es de " << columna << "\n";
+		}
+		break;
+		
 		case 2:
 			MenuPartidaPerso();
 			break;
@@ -60,6 +71,8 @@ void Sistema::MenuPartidaPerso()
 		{
 			cout << "\nEl ancho del tablero es de " << columna << "\n";
 			this->matriz->insertNode(0, fila, columna);
+			crearMatriz(fila, columna);
+
 		}
 		else
 		{
@@ -72,6 +85,8 @@ void Sistema::MenuPartidaPerso()
 		MenuPartidaPerso();
 	}
 }
+
+
 
 void Sistema::MenuPartidaPrefab()
 {
@@ -86,34 +101,56 @@ void Sistema::MenuPartidaPrefab()
 	cin >> opcion;
 	switch (opcion)
 	{
-		case 'a':
-			fila = 4;
-			columna = 4;
-			this->matriz->insertNode(0, 4, 4);
-			break;
+	case 'a':
+		fila = 4;
+		columna = 4;
+		this->matriz->insertNode(0, 4, 4);
+		break;
 
-		case 'b':
-			fila = 5;
-			columna = 5;
-			this->matriz->insertNode(0, 5, 5);
-			break;
+	case 'b':
+		fila = 5;
+		columna = 5;
+		this->matriz->insertNode(0, 5, 5);
+		break;
 
-		case 'c':
-			fila = 6;
-			columna = 6;
-			this->matriz->insertNode(0, 6, 6);
-			break;
+	case 'c':
+		fila = 6;
+		columna = 6;
+		this->matriz->insertNode(0, 6, 6);
+		break;
 
-		case 'd':
-			fila = 10;
-			columna = 10;
-			this->matriz->insertNode(0, 10, 10);
-			break;
+	case 'd':
+		fila = 10;
+		columna = 10;
+		this->matriz->insertNode(0, 10, 10);
+		break;
 
-		default:
-			cout << "\nOpcion no valida.\n";
-			MenuPartidaPrefab();
-			break;
+	default:
+		cout << "\nOpcion no valida.\n";
+		MenuPartidaPrefab();
+		break;
 	}
 
+
 }
+void Sistema::crearMatriz(int fila, int columna)
+{
+	int** table = new int* [fila];
+	for (int i = 0; i < fila; i++)
+	{
+		table[i] = new int[columna];
+	}
+	
+
+	for (int i = 0; i < fila; i++)
+	{
+		delete[] table[i];
+	}
+	delete[] table;
+	table = NULL;
+
+}
+
+
+
+

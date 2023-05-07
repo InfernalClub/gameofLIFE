@@ -7,6 +7,8 @@ Nodo::Nodo(int valor, int fila, int columna)
 	this->columna = columna;
 	this->down = nullptr;
 	this->right = nullptr;
+	this->up = nullptr;
+	this->left = nullptr;
 }
 
 Nodo::~Nodo()
@@ -16,6 +18,8 @@ Nodo::~Nodo()
 	this->columna = -1;
 	this->down = nullptr;
 	this->right = nullptr;
+	this->up = nullptr;
+	this->left = nullptr;
 }
 
 int Nodo::getValor()
@@ -43,6 +47,15 @@ Nodo* Nodo::getRight()
 	return this->right;
 }
 
+Nodo* Nodo::getUp()
+{
+	return this->up;
+}
+
+Nodo* Nodo::getLeft()
+{
+	return this->left;
+}
 void Nodo::setValor(int valor)
 {
 	this->valor = valor;
@@ -66,4 +79,14 @@ void Nodo::setDown(Nodo* down)
 void Nodo::setRight(Nodo* right)
 {
 	this->right = right;
+}
+
+void Nodo::setUp(Nodo* up)
+{
+	this->up = up;
+}
+
+void Nodo::setLeft(Nodo* left)
+{
+	this->left = left;
 }
