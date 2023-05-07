@@ -25,7 +25,7 @@ void Sistema::Menu()
 	{
 	case 1: 
 		{
-		//rand() entrega un valor aleatorio, en este caso entre 4 y 10
+		//creacion de random device y distribuicion uniforme para manejar con mejor flexibilidad numeros aleatorios
 		std::random_device rd;
 		std::uniform_int_distribution<int> dist(4, 10);
 		int fila = dist(rd);

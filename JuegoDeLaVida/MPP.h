@@ -4,7 +4,7 @@
 
 using namespace std;
 class MPP
-{
+{	
 private:
 	Nodo* raiz;
 	int num_f;
@@ -13,11 +13,11 @@ public:
 	// Constructor
 	// <param name="num_f">Numero de filas</param>
 	// <param name="num_c">Numero de columnas</param>
-	MPP(int row, int column);
+	MPP(int fila, int columna);
 	// Destructor basico
 	~MPP() = default;
 	// Agrega un dato a la matriz
-	bool insertNode(int dato, int fila, int columna);
+	bool insertNode(int valor, int fila, int columna);
 	// Busca un dato
 	// <param name="num_f">Fila del dato (Paralelo)</param>
 	// <param name="num_c">Columna del dato (Numero lista)</param>
